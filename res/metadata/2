@@ -1,0 +1,12 @@
+{
+    "name": "KU_OCEAN",
+    "attributes": [
+        {
+            "trait_type": "tokenId",
+            "value": "0"
+        }
+    ],
+    "description": "ku-ocean image",
+    // Include the recently uploaded image URL here
+    "image": "ipfs/bafybeig3c6gya64lkr7gpsha5czjftapznoznx3xpid24td36khuihlilu"
+}
