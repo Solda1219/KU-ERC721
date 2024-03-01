@@ -20,7 +20,8 @@ const baseURI= "ipfs://";
 const setBaseURITx= ku.methods.setBaseURI(baseURI);
 
 const setBaseURI= async () =>{
-    console.log("tx dafa", setBaseURITx.encodeABI());
+    const gasEx= await web3.eth.getGasPrice();
+    console.log("gasEx", gasEx);
     // console.log("tx gas", web3.utils.toHex(await setBaseURITx.estimateGas()));
     console.log("gas pR", web3.utils.toHex(await web3.eth.getGasPrice()));
     console.log("nonce", web3.utils.toHex(await web3.eth.getTransactionCount(accountFrom.address)));
@@ -33,15 +34,15 @@ const setBaseURI= async () =>{
     }
     
     const createTransaction = await web3.eth.accounts.signTransaction(
-        tx,
-        accountFrom.privateKey
-      );
-        console.log("createTx", createTransaction);
-      // 8. Send transaction and wait for receipt
-      const createReceipt = await web3.eth.sendSignedTransaction(
-        createTransaction.rawTransaction
-      );
-      console.log(`Tx successful with hash: ${createReceipt.transactionHash}`);
+      tx,
+      accountFrom.privateKey
+    );
+      console.log("createTx", createTransaction);
+    // 8. Send transaction and wait for receipt
+    const createReceipt = await web3.eth.sendSignedTransaction(
+      createTransaction.rawTransaction
+    );
+    console.log(`Tx successful with hash: ${createReceipt.transactionHash}`);
 }
   
 setBaseURI();
